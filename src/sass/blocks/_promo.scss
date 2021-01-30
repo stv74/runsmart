@@ -1,6 +1,6 @@
 .promo {
   min-height: 650px;
-  padding: 21px 0 93px 0;
+  padding: 21px 20px 93px;
   background: url(../images/bg/hero_bg.jpg) center (center/cover) no-repeat;
   &__wrapper {
     display: flex;
@@ -53,6 +53,42 @@
       text-decoration: underline;
       color: #FFFFFF;
     }
+  }
+  @media (max-width: 768px) {
+    min-height: 600px;
+    padding-bottom: 63px;
+    background-position: 30% 0;
+    &__wrapper {
+      margin-top: 70px;
+    }
+    &__header {
+      font-size: 32px;
+    }
+    &__subheader {
+      font-size: 18px;
+      margin-top: 14px;
+    }
+    &__icons {
+      width: 350px;
+      margin-top: 50px;
+    }
+    &__icon {
+      font-size: 12px;
+    }
+    &__link {
+      font-size: 14px;
+      margin-top: 15px;
+    }
+  }
+  @media (max-width: 576px) {
+    padding: 18px 15px 43px;
+    &__wrapper {
+      align-items: center;
+      text-align: center;
+    }
+    &__icons {
+      width: 280px;
+    }    
   }
 }
   

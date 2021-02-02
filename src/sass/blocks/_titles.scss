@@ -4,4 +4,10 @@
   text-align: center;
   color: #0D0D0D;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
 }

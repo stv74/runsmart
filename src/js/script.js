@@ -1,3 +1,3 @@
-function app() {
-
-}
+$(document).ready(function(){
+    $('.carousel__inner').slick();
+  });

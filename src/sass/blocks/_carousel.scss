@@ -9,7 +9,8 @@
             width: 100%;
         }
     }
-    .slick-prev, .slick-next  {
+    .slick-prev, .slick-next,
+    .owl-prev, .owl-next {
         position: absolute;
         top: 50%;
         // transform: translate(-50%);
@@ -21,7 +22,8 @@
             height: 50px;
         }
     }
-    .slick-next {
+    .slick-next,
+    .owl-next {
         right: -66px;
         left: auto;
     }    

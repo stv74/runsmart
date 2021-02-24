@@ -21,6 +21,9 @@
             width: 31px;
             height: 50px;
         }
+        :hover {
+            background-color: #fff; 
+        }
     }
     .slick-next,
     .owl-next {
@@ -45,7 +48,14 @@
             width: 20px;
             height: 20px;
             outline: none;
-        }                
+        }
+                    
+    }
+    .owl-dots {
+        button[class="active"] 
+            span {
+                background-color: #C70101;
+            }                    
     }
     
 }

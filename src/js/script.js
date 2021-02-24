@@ -19,23 +19,20 @@
     $(".owl-carousel").owlCarousel({
       loop:true,
       margin:10,        
-      items:1,
-      dots:false,
-      nav:true,
-      navText:[
-        '<div class="owl-prev"><img src="icons/left.svg"></div>', 
-        '<div class="owl-next"><img src="icons/right.svg"></div>'
-      ],                  
+      items:1,                        
       responsive:{
-          0:{
-              items:1
-          },
-          600:{
-              items:3
-          },
-          1000:{
-              items:5
-          }
+        0:{
+          dots:true,
+          nav:false
+        },
+        992:{
+          dots:true,
+          nav:true,
+          navText:[
+            '<img src="icons/left.svg">', 
+            '<img src="icons/right.svg">'
+          ]
+        }
       }
     });
   });

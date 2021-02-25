@@ -1,4 +1,5 @@
-.carousel {
+// Slick-slider
+/* .carousel {
     padding: 81px 20px;
     &__inner {
         position: relative;
@@ -9,24 +10,18 @@
             width: 100%;
         }
     }
-    .slick-prev, .slick-next,
-    .owl-prev, .owl-next {
+    .slick-prev, .slick-next {
         position: absolute;
-        top: 50%;
-        // transform: translate(-50%);
+        top: 50%;        
         left: -66px;
         border: none;
         background-color: #fff;
         img {
             width: 31px;
             height: 50px;
-        }
-        :hover {
-            background-color: #fff; 
-        }
+        }        
     }
-    .slick-next,
-    .owl-next {
+    .slick-next {
         right: -66px;
         left: auto;
     }    
@@ -40,22 +35,42 @@
                 background-color: #C70101;
             }
         button {
-            margin-right: 25px;
+            margin-right: 20px;
             font-size: 0;
             background-color: rgb(196, 192, 192);
             border-radius: 50%;
             border: none;
-            width: 20px;
-            height: 20px;
+            width: 10px;
+            height: 10px;
             outline: none;
+        }                    
+    }          
+} */
+
+// Owl-carousel
+.carousel {
+    padding: 81px 20px;
+    .owl-carousel {
+        position: relative;
+        max-width: 750px;
+        margin: 0 auto;        
+    }    
+    .owl-prev, .owl-next {
+        position: absolute;
+        top: 50%;        
+        left: -66px;
+        border: none;
+        background-color: #fff;
+        img {
+            width: 31px;
+            height: 50px;
         }
-                    
+        &:hover {
+            background-color: #fff; 
+        }
+    }    
+    .owl-next {
+        right: -66px;
+        left: auto;
     }
-    .owl-dots {
-        button[class="active"] 
-            span {
-                background-color: #C70101;
-            }                    
-    }
-    
-}
+} 

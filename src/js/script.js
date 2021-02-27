@@ -35,7 +35,7 @@
           nav:false
         },
         992:{
-          dots:true,
+          dots:false,
           nav:true,
           navText:[
             '<img src="icons/left.svg">', 

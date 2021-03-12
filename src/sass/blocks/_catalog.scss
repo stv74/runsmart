@@ -47,7 +47,7 @@
         width: 303px;
         min-height: 442px;        
         border: 2px solid #e8e8e8;
-        padding: 20px 20px 26px 20px;
+        padding: 20px 15px 26px 15px;
         margin-bottom: 20px;
         overflow: hidden;
         &:not(:nth-child(3n+3)) {
@@ -119,12 +119,11 @@
         }
         &__content {
             width: 50%;
-            margin-right: 0;
-            transform: translateX(-100%);
+            margin-right: 20px;
+            transform: translateX(calc(-100% - 40px));
             transition: 0.5s all;
             &_active {
-                transform: translateX(0%);
-                margin-right: 20px;
+                transform: translateX(0%);                
             }
         }
         &__list {
@@ -132,14 +131,13 @@
             width: 50%;
             margin-left: 20px;
             transform: translateX(0%);
-            padding-right: 20px;
+            // padding-right: 0;
             transition: 0.5s all;
             padding-left: 17px;
             margin-bottom: 0;
             list-style: none;
             &_active {
-                transform: translateX(-100%);
-                margin-left: 0;
+                transform: translateX(calc(-100% - 40px));               
             }
             li {
                 position: relative;
@@ -153,7 +151,7 @@
                     width: 8px;
                     height: 8px;
                     background-color: $main-color;
-                    left: -17px;
+                    left: -15px;
                     top: 6px;
                 }
             }
@@ -167,8 +165,7 @@
             font-size: 14px;
             text-transform: uppercase;
             border-bottom: 1px solid $main-color;
-            line-height: 14px;
-            // text-decoration: underline;
+            line-height: 14px;            
             color: $main-color;
             &:hover {
                 color: $main-color;
@@ -188,6 +185,8 @@
     }
     @media (max-width: 768px) {
         &__tab {
+            width: 205px;
+            height: 48px;
             font-size: 14px; 
         }
         &__content {
@@ -197,19 +196,31 @@
     @media (max-width: 576px) {
         &__tabs {
             flex-direction: column;
-            margin-top: 50px;
+            margin-top: 40px;
         }
         &__tab {
             margin: 0 auto 15px;
         }
+        &__content {
+            margin-top: 40px;
+        }
         &-item {
+            &__subtitle {
+                font-size: 14px;
+            }
             &__descr {
                 font-size: 12px;
-            }
+            } 
+            &__link {
+                font-size: 12px;
+            }           
             &__list {
                 li {
                     font-size: 12px;
                 }
+            }
+            &__back {
+                font-size: 12px;
             }
             &__old-prices {
                 font-size: 12px;

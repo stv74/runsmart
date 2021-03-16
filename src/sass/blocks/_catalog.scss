@@ -1,5 +1,5 @@
 .catalog {
-    padding: 0 20px 100px;
+    padding: 0 20px 80px;
     &__tabs {
         margin-top: 70px;
         margin-bottom: 0;
@@ -176,7 +176,7 @@
     @media (max-width: 992px) {
         &__content {
             max-width: 670px;
-            margin: 60px auto;
+            margin: 60px auto 0;
             padding-left: 20px; 
         }
         &-item {
@@ -194,6 +194,7 @@
         }
     }
     @media (max-width: 576px) {
+        padding-bottom: 50px;
         &__tabs {
             flex-direction: column;
             margin-top: 40px;

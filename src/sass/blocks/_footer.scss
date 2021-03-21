@@ -35,19 +35,35 @@
     }
     &__social-item {
         display: flex;
+        position: relative;
         justify-content: center;
         align-items: center;
         width: 50px;
-        height: 50px;
+        height: 50px;        
         border: 2px solid #FFFFFF;
         border-radius: 100%;
         margin: 0 27px;
+        overflow: hidden;
+        z-index: 1;
         img {
             height: 25px;                       
-        }        
+        }
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            background-color: #af2525;
+            top: 50%;
+            width: 15px;
+            height: 100%;
+            z-index: -1;
+        }
+        /* &:hover, &:active, &:focus {
+            background-color: #af2525;
+        } */        
     }
     &__social {
-        display: flex;
+        display: flex;        
         justify-content: center;
         align-items: center;
     }

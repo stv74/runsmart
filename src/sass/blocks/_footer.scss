@@ -48,19 +48,26 @@
         img {
             height: 25px;                       
         }
-        &::before,
-        &::after {
+        &::before {
             content: '';
-            position: absolute;
-            background-color: #af2525;
-            top: 50%;
-            width: 15px;
-            height: 100%;
+            position: absolute;            
+            top: 0;
+            right: -50px;
+            left: 0;
+            bottom: 0;            
+            border-right: 50px solid transparent;
+            border-top: 50px solid #7a0000;
+            transition: transform 0.5s;
+            transform: translateX(-100%);
             z-index: -1;
         }
-        /* &:hover, &:active, &:focus {
-            background-color: #af2525;
-        } */        
+        &:hover, 
+        &:active, 
+        &:focus {
+            &::before {
+                transform: translateX(0);
+            }
+        }        
     }
     &__social {
         display: flex;        

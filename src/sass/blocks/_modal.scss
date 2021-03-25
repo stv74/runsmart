@@ -39,6 +39,14 @@
     &_mini {
         min-height: 140px;
     }
+    @media (max-width: 576px) {
+        width: 320px;
+        padding: 30px 40px 40px 40px;
+        &__close {
+            top: 5px;
+            right: 5px;            
+        }
+    }
 }
 
 #consultation, #order, #thanks {

@@ -1,5 +1,5 @@
 // Определяем константы Gulp
-const { src, dest, parallel, watch } = require('gulp');
+const { src, dest, parallel, series, watch } = require('gulp');
 
 // Подключаем Browsersync
 const browserSync = require('browser-sync').create();
@@ -19,6 +19,18 @@ const autoprefixer = require('gulp-autoprefixer');
 // Подключаем модуль gulp-clean-css
 const cleancss = require('gulp-clean-css');
 
+// Подключаем gulp-imagemin для работы с изображениями
+const imagemin = require('gulp-imagemin');
+
+// Подключаем gulp-htmlmin для минимизации файла html
+const htmlmin = require('gulp-htmlmin');
+
+// Подключаем модуль gulp-newer
+const newer = require('gulp-newer');
+
+// Подключаем модуль del
+const del = require('del');
+
 // Определяем логику работы Browsersync
 function browsersync() {
   browserSync.init({ // Инициализация Browsersync
@@ -30,8 +42,11 @@ function browsersync() {
 
 function scripts() {
   return src([ // Берём файлы из источников
-    //'node_modules/jquery/dist/jquery.min.js', // Пример подключения библиотеки
-    'src/js/script.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
+    'src/js/owl.carousel.js',
+    'src/js/jquery.maskedinput.js',
+    'src/js/jquery.validate.js',
+    'src/js/wow.js',
+    'src/js/script.js', // Пользовательские скрипты, использующие библиотеки, должны быть подключены в конце
   ])
     .pipe(concat('script.min.js')) // Конкатенируем в один файл
     .pipe(uglify()) // Сжимаем JavaScript
@@ -49,16 +64,47 @@ function styles() {
     .pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
+function html() {
+  return src('src/**/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('dist/'))    
+}
+
+function images() {
+	return src('src/images/**/*') // Берём все изображения из папки источника	
+	.pipe(imagemin()) // Сжимаем и оптимизируем изображеня
+	.pipe(dest('dist/images/')) // Выгружаем оптимизированные изображения в папку назначения
+}
+
+function cleanimg() {
+	return del('dist/images/**/*', { force: true }) // Удаляем всё содержимое папки "dist/images/"
+}
+
+function buildcopy() {
+	return src([ // Выбираем нужные файлы
+    'src/css/**/*.min.css',
+    'src/js/**/*.min.js',
+		'src/mailer/**/*',
+		'src/fonts/**/*',
+		'src/icons/**/*',		
+		], { base: 'src' }) // Параметр "base" сохраняет структуру проекта при копировании
+	.pipe(dest('dist')) // Выгружаем в папку с финальной сборкой
+}
+
+function cleandist() {
+	return del('dist/**/*', { force: true }) // Удаляем всё содержимое папки "dist/"
+}
+
 function startwatch() {
 
   // Выбираем все файлы JS в проекте, а затем исключим с суффиксом .min.js
   watch(['src/**/*.js', '!src/**/*.min.js'], scripts);
 
   // Мониторим файлы препроцессора на изменения
-  watch('src/sass/**/*.+(scss|sass)', styles);
+  watch('src/sass/**/*.+(scss|sass|css)', styles);
 
   // Мониторим файлы HTML на изменения
-  watch('src/**/*.html').on('change', browserSync.reload);
+  watch('src/**/*.html', html).on('change', browserSync.reload);  
 }
 
 // Экспортируем функцию browsersync() как таск browsersync. Значение после знака = это имеющаяся функция.
@@ -69,6 +115,20 @@ exports.scripts = scripts;
 
 // Экспортируем функцию styles() в таск styles
 exports.styles = styles;
+
+// Экспорт функции images() в таск images
+exports.images = images;
+
+// Экспортируем функцию cleanimg() как таск cleanimg
+exports.cleanimg = cleanimg;
+
+// Экспортируем функцию html() как таск html
+exports.html = html;
+
+exports.cleandist = cleandist;
+
+// Создаём новый таск "build", который последовательно выполняет нужные операции
+exports.build = series(cleandist, html, styles, scripts, images, buildcopy);
 
 // Экспортируем дефолтный таск с нужным набором функций
 exports.default = parallel(styles, scripts, browsersync, startwatch);

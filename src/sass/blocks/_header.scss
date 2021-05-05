@@ -1,64 +1,62 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  //На случай замены логотипа в будущем 
-  &__logo {
-    width: 250px; //Ширина логотипа изначально заданная в макете
-    img {
-      width: 100%; //Новый логотип подстроится под заданный размер
-    }
-  }
-  &__official {       
-    font-weight: 500;
-    font-size: 12px;
-    color: #FFFFFF;
-    text-align: center;
-    span {
-      display: block;
-      font-size: 18px;
-    }    
-  }
-  &__phone {
-    display: block;
-    font-weight: 700;
-    font-size: 18px;
-    color: #FFFFFF;
-    &:hover {
-      color: #FFFFFF;
-      text-decoration: none;
-    }
-  }
-  &__contacts {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  @media (max-width: 768px) {
+    justify-content: space-between;
+    align-items: center;
+    //На случай замены логотипа в будущем
     &__logo {
-      width: 180px;
+        width: 250px; //Ширина логотипа изначально заданная в макете
+        img {
+            width: 100%; //Новый логотип подстроится под заданный размер
+        }
     }
     &__official {
-      font-size: 10px;
-      span {
-        font-size: 14px;
-      }
+        font-weight: 500;
+        font-size: 12px;
+        color: #ffffff;
+        text-align: center;
+        span {
+            display: block;
+            font-size: 18px;
+        }
     }
     &__phone {
-      font-size: 14px;
+        display: block;
+        font-weight: 700;
+        font-size: 18px;
+        color: #ffffff;
+        &:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
     }
-  }
-  @media (max-width: 576px) {    
-    &__logo {
-      margin-right: 15px;
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
     }
-    &__official {
-      display: none;
+    @media (max-width: 768px) {
+        &__logo {
+            width: 180px;
+        }
+        &__official {
+            font-size: 10px;
+            span {
+                font-size: 14px;
+            }
+        }
+        &__phone {
+            font-size: 14px;
+        }
     }
-    &__phone {
-      font-size: 12px;
+    @media (max-width: 576px) {
+        &__logo {
+            margin-right: 15px;
+        }
+        &__official {
+            display: none;
+        }
+        &__phone {
+            font-size: 12px;
+        }
     }
-  }
 }
-
-  

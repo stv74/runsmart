@@ -1,85 +1,94 @@
 .button {
-  position: relative;  
-  width: 153px;
-  height: 32px;
-  background-color: $main-color;
-  border-radius: 5px;
-  border: none;
-  font-weight: 500;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  overflow: hidden;
-  transition: box-shadow 0.3s, transform 0.3s;
-  &:hover,
-  &:active,
-  &:focus {
-    transform: translateY(-2px);    
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
-    color: #fff;
+    position: relative;
+    width: 153px;
+    height: 32px;
+    background-color: $main-color;
+    border-radius: 5px;
+    border: none;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ffffff;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+    &:hover,
+    &:active,
+    &:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
+            0 16px 20px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        &::before {
+            left: 100%;
+        }
+    }
     &::before {
-      left: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            -45deg,
+            transparent,
+            rgba(191, 226, 255, 0.3),
+            transparent
+        );
+        transition: left 0.7s;
     }
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-45deg, transparent, rgba(191, 226, 255, 0.3), transparent);
-    transition: left 0.7s;
-  }
-  @media (max-width: 768px) {
-    width: 128px;
-    height: 26px;
-    font-size: 10px;
-  }
-  @media (max-width: 576px) {
-    width: 108px;
-  }
-  &_main {
-    margin-top: 67px;
-    width: 303px;
-    height: 54px;     
-    font-size: 16px;
-    &:hover,
-    &:active,
-    &:focus {          
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 16px 20px rgba(0,0,0,0.4);      
-    }    
     @media (max-width: 768px) {
-      width: 240px;
-      height: 46px;
-      font-size: 14px;
-      margin-top: 57px;
+        width: 128px;
+        height: 26px;
+        font-size: 10px;
     }
-  }
-  &_submit {
-    width: 100%;
-    height: 58px;
-    background: $main-color;    
-    font-size: 16px;
-    &:hover,
-    &:active,
-    &:focus {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.8), 0 16px 20px rgba(0,0,0,0.8);
-    }    
-  }  
-  &_mini {
-    width: 135px;
-    height: 44px;    
-    font-size: 14px;
-    &:hover,
-    &:active,
-    &:focus {
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.2);      
-    } 
     @media (max-width: 576px) {
-      width: 105px;
-      height: 40px;    
-      font-size: 12px;
-    }    
-  }
+        width: 108px;
+    }
+    &_main {
+        margin-top: 67px;
+        width: 303px;
+        height: 54px;
+        font-size: 16px;
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4),
+                0 16px 20px rgba(0, 0, 0, 0.4);
+        }
+        @media (max-width: 768px) {
+            width: 240px;
+            height: 46px;
+            font-size: 14px;
+            margin-top: 57px;
+        }
+    }
+    &_submit {
+        width: 100%;
+        height: 58px;
+        background: $main-color;
+        font-size: 16px;
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8),
+                0 16px 20px rgba(0, 0, 0, 0.8);
+        }
+    }
+    &_mini {
+        width: 135px;
+        height: 44px;
+        font-size: 14px;
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2),
+                0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 576px) {
+            width: 105px;
+            height: 40px;
+            font-size: 12px;
+        }
+    }
 }
